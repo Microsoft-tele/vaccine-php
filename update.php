@@ -1,11 +1,13 @@
 <?php
 // var_dump($_POST);
-$res = explode(" ", $_POST['id']);
+$res = explode(" ", $_POST['id']);//
 $id = $res[0];
 
 $tmp = explode("_",$res[1]);
 $table = $tmp[1];
-
+// $res[1] t_表名
+// $table  表名
+// $id 主键
 
 include "conn.php";
 $link = $GLOBALS['conn'];
