@@ -53,14 +53,26 @@ if($res[1] == "t_vaccine"){
         <tr>
             <form action="update_sql.php" method="post">
                 <td> <input type="number" name="institute_id" value="<?php echo $institute_id ?>"> </td>
-                <td> <input type="text" name="institute_name"> </td>
-                <td> <input type="text" name="institute_tel"> </td>
-                <td> <input type="number" name="institute_StudentNumber"> </td>
+                <td> <input type="text" name="institute_name" value="<?php echo $institute_name ?>"> </td>
+                <td> <input type="text" name="institute_tel" value="<?php echo $institute_tel ?>"> </td>
+                <td> <input type="number" name="institute_StudentNumber" value="<?php echo $institute_StudentNumber ?>"> </td>
                 <td> <button type="submit" name="table" value="<?php echo "institute"." ".$id ?>">修改</button> </td>
             </form>
         </tr>
     </table>
-<?php }elseif ($res[1] == "t_student"){ ?>
+<?php }elseif ($res[1] == "t_student"){
+    $sql_student = "select * from $table where student_id = $id";
+    $data = $link->query($sql_student);
+    $row = $data->fetch_assoc();
+    $student_id = $row['student_id'];
+    $student_name = $row['student_name'];
+    $student_sex = $row['student_sex'];
+    $student_tel = $row['student_tel'];
+    $institute_id = $row['institute_id'];
+    $is_vaccine = $row['is_vaccine'];
+    $is_NAT = $row['is_NAT'];
+    $vaccine_id = $row['vaccine_id'];
+    ?>
     <table border="1">
         <tr>
             <td>学号</td>
@@ -74,14 +86,14 @@ if($res[1] == "t_vaccine"){
         </tr>
         <tr>
             <form action="update_sql.php" method="post">
-                <td> <input type="number" name="student_id"> </td>
-                <td> <input type="text" name="student_name"> </td>
-                <td> <input type="text" name="student_sex"> </td>
-                <td> <input type="text" name="student_tel"> </td>
-                <td> <input type="number" name="institute_id"> </td>
-                <td> <input type="number" name="is_vaccine"> </td>
-                <td> <input type="number" name="is_NAT"> </td>
-                <td> <input type="number" name="vaccine_id"> </td>
+                <td> <input type="number" name="student_id" value="<?php echo $student_id ?>"> </td>
+                <td> <input type="text" name="student_name" value="<?php echo $student_name ?>"> </td>
+                <td> <input type="text" name="student_sex" value="<?php echo $student_sex ?>"> </td>
+                <td> <input type="text" name="student_tel" value="<?php echo $student_tel ?>"> </td>
+                <td> <input type="number" name="institute_id" value="<?php echo $institute_id ?>"> </td>
+                <td> <input type="number" name="is_vaccine" value="<?php echo $is_vaccine ?>"> </td>
+                <td> <input type="number" name="is_NAT" value="<?php echo $is_NAT ?>"> </td>
+                <td> <input type="number" name="vaccine_id" value="<?php echo $vaccine_id ?>"> </td>
                 <td> <button type="submit" name="table" value="<?php echo "student"." ".$id ?>">修改</button> </td>
             </form>
         </tr>
