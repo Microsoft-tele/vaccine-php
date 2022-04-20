@@ -16,10 +16,12 @@ if($table == 'vaccine'){
     WHERE vaccine_id=$id";
 
     if ($link->query($sql_vaccine) === TRUE) {
-        echo "（vaccine表）修改成功";
+        echo "（vaccine表）修改成功<br>";
     } else {
         echo "（vaccine表）修改失败<br>";
     }
+    header('Refresh:3,Url=vaccine.php');
+    echo '3s 后跳转';
 }elseif ($table == 'institute'){
     $set1 = (int)$_POST['institute_id'];
     $set2 = "'".$_POST['institute_name']."'";
@@ -29,10 +31,12 @@ if($table == 'vaccine'){
     WHERE institute_id=$id";
 
     if ($link->query($sql_institute) === TRUE) {
-        echo "（institute表）修改成功";
+        echo "（institute表）修改成功<br>";
     } else {
         echo "（institute表）修改失败<br>";
     }
+    header('Refresh:3,Url=institute.php');
+    echo '3s 后跳转';
 }elseif ($table == 'student'){
     $set1 = (int)$_POST['student_id'];
     $set2 = "'".$_POST['student_name']."'";
@@ -46,8 +50,10 @@ if($table == 'vaccine'){
     WHERE student_id=$id";
 
     if ($link->query($sql_institute) === TRUE) {
-        echo "（student表）修改成功";
+        echo "（student表）修改成功<br>";
     } else {
         echo "（student表）修改失败<br>";
     }
+    header('Refresh:3,Url=student.php');
+    echo '3s 后跳转';
 }

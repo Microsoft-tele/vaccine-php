@@ -24,24 +24,30 @@ if($table == 'vaccine'){
     $sql = "delete from vaccine where vaccine_id=$id";
 
     if ($link->query($sql) === TRUE) {
-        echo "（vaccine表）删除成功";
+        echo "（vaccine表）删除成功<br>";
     } else {
         echo "（vaccine表）删除失败<br>";
     }
+    header('Refresh:3,Url=vaccine.php');
+    echo '3s 后跳转';
 }elseif ($table == 'institute'){
     $sql = "delete from institute where institute_id=$id";
 
     if ($link->query($sql) === TRUE) {
-        echo "（institute表）删除成功";
+        echo "（institute表）删除成功<br>";
     } else {
         echo "（institute表）删除失败<br>";
     }
+    header('Refresh:3,Url=institute.php');
+    echo '3s 后跳转';
 }elseif ($table == 'student'){
     $sql = "delete from student where student_id=$id";
 
     if ($link->query($sql) === TRUE) {
-        echo "（student表）删除成功";
+        echo "（student表）删除成功<br>";
     } else {
         echo "（student表）删除失败<br>";
     }
+    header('Refresh:3,Url=student.php');
+    echo '3s 后跳转';
 }

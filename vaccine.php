@@ -45,3 +45,6 @@ if($res->num_rows > 0){ ?>
 <form action="insert.php" method="post">
     <button type="submit" name="table" value="t_vaccine">插入数据</button>
 </form>
+<form action="menu.html">
+    <button type="submit">首页</button>
+</form>
